@@ -8,3 +8,4 @@ LANE_COLOR = (0, 0, 0)
 # Map settings
 MAP_WIDTH = 800
 MAP_HEIGHT = 600
+LANE_WIDTH = 150
