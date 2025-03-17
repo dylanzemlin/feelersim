@@ -19,6 +19,51 @@ class Game:
         for line in lines:
             self.lanes.append(line)
 
+        # draw a small rounded rectangle as a "barrel" on the right side that touches the inner lane (inside the lanes for reference)
+        lines = self.rounded_rectangle(MAP_WIDTH - 60, MAP_HEIGHT // 2 - 70, 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
+        # draw a small rounded rectangle as a "barrel" on the right side that touches the inner lane (inside the lanes for reference)
+        lines = self.rounded_rectangle(MAP_WIDTH - 76, MAP_HEIGHT // 2 - 70, 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
+        # draw one above it by 60 pxels
+        lines = self.rounded_rectangle(MAP_WIDTH - 116, MAP_HEIGHT // 2, 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
+        # draw one above it by 60 pxels
+        lines = self.rounded_rectangle(MAP_WIDTH - 100, MAP_HEIGHT // 2, 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
+        # draw a small rounded rectangle as a "barrel" on the right side that touches the inner lane (inside the lanes for reference)
+        lines = self.rounded_rectangle(MAP_WIDTH - (MAP_WIDTH // 4.3), MAP_HEIGHT // 2 + 182, 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
+        # draw a small rounded rectangle as a "barrel" on the right side that touches the inner lane (inside the lanes for reference)
+        lines = self.rounded_rectangle(MAP_WIDTH - (MAP_WIDTH // 4.3), MAP_HEIGHT // 2 + 244, 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
+        # draw one above it by 60 pxels
+        lines = self.rounded_rectangle(MAP_WIDTH - 80, MAP_HEIGHT // 4, 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
+                # draw one above it by 60 pxels
+        lines = self.rounded_rectangle(MAP_WIDTH - 70, MAP_HEIGHT - (MAP_HEIGHT // 4), 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
+                # draw one above it by 60 pxels
+        lines = self.rounded_rectangle(MAP_WIDTH - 95, MAP_HEIGHT - (MAP_HEIGHT // 3), 16, 16, 25)
+        for line in lines:
+            self.lanes.append(line)
+
     def bezier_curve(self, control_points, resolution):
         n = len(control_points) - 1
         t_values = np.linspace(0, 1, resolution)
@@ -34,7 +79,7 @@ class Game:
         
         return line_segments
 
-    def bezier_curve(self, control_points, resolution=20):
+    def bezier_curve(self, control_points, resolution=8):
         n = len(control_points) - 1
         t_values = np.linspace(0, 1, resolution)
         curve_points = []
@@ -46,7 +91,7 @@ class Game:
         
         return curve_points
 
-    def rounded_rectangle(self, x, y, width, height, radius, resolution=20):
+    def rounded_rectangle(self, x, y, width, height, radius, resolution=8):
         if radius > min(width, height) / 2:
             radius = min(width, height) / 2
         
@@ -80,5 +125,4 @@ class Game:
 
     def draw(self, screen):
         for lane in self.lanes:
-            print(lane)
             pygame.draw.line(screen, LANE_COLOR, lane[0], lane[1])
